@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <! -- 
+  https://github.com/sparkfun/phant/pull/85
+  !>
+    <!-- EXTERNAL LIBS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+
+    <!-- EXAMPLE SCRIPT -->
+    <script>
+
+      // onload callback
+      function drawChart() {
+
+        var public_key = 'jkPmjaPoKztwAark4Wa9fDDqOgxj';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'dht');
+          data.addColumn('number', 'am2315');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.humidity_dht),
+              parseFloat(row.humidity_am2315)
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_6_humidity').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 6: Humidity (% RH)'
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+
+    <script>
+
+      // onload callback
+      function drawChart() {
+
+        var public_key = 'jkPmjaPoKztwAark4Wa9fDDqOgxj';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'dht');
+          data.addColumn('number', 'am2315');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.temp_dht),
+              parseFloat(row.temp_am2315)
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_6_temp').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 6: Temperature (C)'
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+    
+    
+    <script>
+
+      // onload callback
+      function drawChart() {
+
+        var public_key = 'jkPmjaPoKztwAark4Wa9fDDqOgxj';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'battery');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.a1)/112.1
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_6_volts').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 6: Atomiton Battery Voltage (Volts)'
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+    
+    
+     <script>
+
+// PROBE 4:
+      // onload callback
+      
+      function drawChart() {
+
+        var public_key = 'AXa4GD3J1Miv2Vda6bVZSGGLPpaK';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', '3" (C)');
+          data.addColumn('number', '7" (C)');        
+          data.addColumn('number', '18" (C)');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.temp_1),
+              parseFloat(row.temp_2),
+              parseFloat(row.temp_0)
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_4').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 4: Temperature (C)',
+            vAxis: { 
+          viewWindowMode:'explicit',
+          viewWindow:{ min:-2, max :4 },
+          }
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+    
+    <script>
+
+// PROBE 2: humidity
+      // onload callback
+      
+      function drawChart() {
+
+        var public_key = 'vZrrayEJzlipYLdGvPLJiqqlVO6v';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'Soil Moisture (%RH)');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.humidity_sht)
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_2_humid').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 2: Soil Moisture (% RH)',
+            vAxis: { 
+          viewWindowMode:'explicit',
+          viewWindow:{ min:0, max :125 },
+          }
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+    
+        <script>
+
+// PROBE 2: temp
+      // onload callback
+      
+      function drawChart() {
+
+        var public_key = 'vZrrayEJzlipYLdGvPLJiqqlVO6v';
+
+        // JSONP request
+        var jsonData = $.ajax({
+          url: 'http://159.203.128.53/output/' + public_key + '?sample=100.json',
+          //data: {page: 1},
+          dataType: 'jsonp',
+        }).done(function (results) {
+
+          var data = new google.visualization.DataTable();
+
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'Temp (C)');
+
+          $.each(results, function (i, row) {
+            data.addRow([
+              (new Date(row.timestamp)),
+              parseFloat(row.temp_sht)
+            ]);
+          });
+
+          var chart = new google.visualization.LineChart($('#probe_2_temp').get(0));
+
+          chart.draw(data, {
+            title: 'Probe 2: Temp (C)',
+            vAxis: { 
+          viewWindowMode:'explicit',
+          viewWindow:{ min:-3, max :30 },
+          }
+          });
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+    
+    
+  </head>
+  <body>
+
+<div><a href='http://target.atomiton.com:8080/fid-dashboard/index.html#/graph/LBAWCHFCAAAH6AAAAG54AJA5/LBAWCALRAAAH6AAAAFEI4Q2G'>Atomiton Soil Moisture</a></div>
+
+    <div id="probe_6_temp" style="width: 100%;"></div>
+    <div id="probe_6_humidity" style="width: 100%;"></div>
+       <div id="probe_6_volts" style="width: 100%;"></div>
+    <div id="probe_4" style="width: 100%;"></div>
+            <div id="probe_2_humid" style="width: 100%;"></div>
+            <div id="probe_2_temp" style="width: 100%;"></div>
+  </body>
+</html>
