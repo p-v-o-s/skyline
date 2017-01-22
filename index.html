@@ -41,7 +41,8 @@
           var chart = new google.visualization.LineChart($('#probe_6_humidity').get(0));
 
           chart.draw(data, {
-            title: 'Probe 6: Humidity (% RH)'
+            title: 'Probe 6: Humidity (% RH)',
+            pointSize: 2,
           });
 
         });
@@ -89,7 +90,8 @@
           var chart = new google.visualization.LineChart($('#probe_6_temp').get(0));
 
           chart.draw(data, {
-            title: 'Probe 6: Temperature (C)'
+            title: 'Probe 6: Temperature (C)',
+            pointSize: 2
           });
 
         });
@@ -136,7 +138,8 @@
           var chart = new google.visualization.LineChart($('#probe_6_volts').get(0));
 
           chart.draw(data, {
-            title: 'Probe 6: Atomiton Battery Voltage (Volts)'
+            title: 'Probe 6: Atomiton Battery Voltage (Volts)',
+            pointSize: 2
           });
 
         });
@@ -190,6 +193,7 @@
 
           chart.draw(data, {
             title: 'Probe 4: Temperature (C)',
+            pointSize: 2,
             vAxis: { 
           viewWindowMode:'explicit',
           viewWindow:{ min:-2, max :4 },
@@ -242,6 +246,7 @@
 
           chart.draw(data, {
             title: 'Probe 2: Soil Moisture (% RH)',
+            pointSize: 2,
             vAxis: { 
           viewWindowMode:'explicit',
           viewWindow:{ min:0, max :125 },
@@ -294,6 +299,7 @@
 
           chart.draw(data, {
             title: 'Probe 2: Temp (C)',
+            pointSize: 2,
             vAxis: { 
           viewWindowMode:'explicit',
           viewWindow:{ min:-3, max :30 },
